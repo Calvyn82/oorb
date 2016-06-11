@@ -1,4 +1,5 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'minitest'
+# Specify your gem's dependencies in oorb.gemspec
+gemspec
 gem 'pry'

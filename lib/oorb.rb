@@ -1,3 +1,4 @@
+require "oorb/version"
 LETTERS = {'s' => %w(f l j i 3 8 5),
            'h' => %w(b),
            'b' => %w(h),
@@ -17,7 +18,17 @@ LETTERS = {'s' => %w(f l j i 3 8 5),
            'j' => %w(y),
 }
 
+##
+# OCR Optimized Regex Builder
 class OORB
+  def initialize
+    @letters = LETTERS
+  end
+
+  attr_reader :letters
+
+  ##
+  # Runs the application from the command line
   def run
     puts "Waiting for a statement."
     user_input = gets.chomp
@@ -25,6 +36,8 @@ class OORB
     run
   end
 
+  ##
+  # Builds an OCR optimized regular expression from a string
   def build_regex(input)
     if input =~ /[\[\]]/
       raise ArgumentError, "Square braces? Really!? Fuck off."
@@ -35,6 +48,9 @@ class OORB
     escapes(statement)
   end
 
+  ##
+  # Builds a group match from an input letter
+  # Raises an argument error if the letter isn't from the LETTERS hash
   def build_collection(letter)
     unless LETTERS[letter]
       raise ArgumentError, "Valid arguments are #{LETTERS.keys.join(", ")}."
@@ -43,6 +59,9 @@ class OORB
     "[#{letter}]"
   end
 
+  ##
+  # Escapes backslashes, whitespace, punctuation, parens and curly braces
+  # Square brackets are forbidden
   def escapes(string)
     string.gsub(/\\/, "\\\\\\")          # escape backslashes
       .gsub(/\s+/, "\\s")                # make whitespace \s

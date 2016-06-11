@@ -1,6 +1,4 @@
-require "minitest/pride"
-require "minitest/autorun"
-require "../oorb/oorb"
+require 'test_helper'
 
 class OORBTest < Minitest::Test
   def setup
