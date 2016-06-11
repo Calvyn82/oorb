@@ -621,6 +621,24 @@ whitespace character</p>
     </li>
   
 </ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ArgumentError</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if the argument isn&#39;t a single character string</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -628,15 +646,15 @@ whitespace character</p>
       <pre class="lines">
 
 
-73
 74
 75
 76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/oorb.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/oorb.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_escape'>escape</span><span class='lparen'>(</span><span class='id identifier rubyid_character'>character</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_character'>character</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>1</span>
@@ -703,7 +721,7 @@ whitespace character</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Jun 11 12:25:54 2016 by
+  Generated on Sat Jun 11 12:33:49 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.3.1).
 </div>
