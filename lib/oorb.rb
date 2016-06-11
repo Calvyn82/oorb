@@ -70,6 +70,7 @@ class OORB
   # Escapes a single-character string and makes whitespace characters optional
   # @param character [String] made of a single character
   # @return [String] escaped character with whitespace charactions made optional
+  # @raise [ArgumentError] if the argument isn't a single character string
   def escape(character)
     if character.length > 1
       raise ArgumentError, "Argument must be a single character string"
