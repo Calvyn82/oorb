@@ -7,7 +7,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     coderay (1.1.1)
-    json (1.8.3)
     method_source (0.8.2)
     minitest (5.9.0)
     pry (0.10.3)
@@ -15,8 +14,6 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rake (10.5.0)
-    rdoc (4.2.2)
-      json (~> 1.4)
     slop (3.6.0)
 
 PLATFORMS
@@ -28,7 +25,6 @@ DEPENDENCIES
   oorb!
   pry
   rake (~> 10.0)
-  rdoc
 
 BUNDLED WITH
    1.12.5
