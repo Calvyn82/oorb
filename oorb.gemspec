@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["claytonflesher@gmail.com"]
 
   spec.summary       = %q{Command line app to convert input to OCR Optimized Regular Expressions}
-  spec.description   = %q{Command line app to covnert input to OCR Optimized Regular Expressions}
+  spec.description   = %q{Command line app to convert input to OCR Optimized Regular Expressions}
   spec.homepage      = "https://github.com/Calvyn82/oorb"
   spec.license       = "MIT"
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
