@@ -37,6 +37,8 @@ class OORB
 
   ##
   # Builds an OCR optimized regular expression from a string
+  # @param input [String] to be parsed
+  # @return [String] formatted as a valid regular expression optimized for capturing OCR mistakes
   def build_regex(input)
     input.downcase.chars.map do |char|
       LETTERS.has_key?(char) ? build_collection(char) : escape(char)
@@ -45,13 +47,17 @@ class OORB
 
   ##
   # Collapses mutliple consecutive whitespace characters into a single whitespace character
+  # @param string [String] of any length
+  # @return [String] where consecutive whitespace characters have been collapsed
   def combine_whitespace(string)
     string.gsub(/\s+/, "\s")
   end
 
   ##
   # Builds a group match from an input letter. 
-  # Raises an argument error if the letter isn't from the LETTERS hash
+  # @raise [ArgumentError] if the argument isn't a single character string
+  # @param character [String] made of a single character
+  # @return [String] collection of commonly mis-ocr'd characters bounded by square brackets
   def build_collection(character)
     unless LETTERS[character]
       raise ArgumentError, "Valid arguments are a single character from #{LETTERS.keys.join(", ")}."
@@ -62,6 +68,8 @@ class OORB
 
   ##
   # Escapes a single-character string and makes whitespace characters optional
+  # @param character [String] made of a single character
+  # @return [String] escaped character with whitespace charactions made optional
   def escape(character)
     if character.length > 1
       raise ArgumentError, "Argument must be a single character string"

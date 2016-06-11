@@ -1,1 +1,1 @@
-yardoc -r --no-private lib/**/*.rb - LICENSE.txt CODE_OF_CONDUCT.md --exclude lib/oorb/version.rb
+yardoc --no-private lib/**/*.rb - LICENSE.txt CODE_OF_CONDUCT.md --exclude lib/oorb/version.rb
