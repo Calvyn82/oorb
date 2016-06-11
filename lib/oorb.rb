@@ -44,13 +44,13 @@ class OORB
   end
 
   ##
-  # Combines whitespace characters to make "   " into " "
+  # Collapses mutliple consecutive whitespace characters into a single whitespace character
   def combine_whitespace(string)
     string.gsub(/\s+/, "\s")
   end
 
   ##
-  # Builds a group match from an input letter
+  # Builds a group match from an input letter. 
   # Raises an argument error if the letter isn't from the LETTERS hash
   def build_collection(character)
     unless LETTERS[character]
@@ -61,7 +61,7 @@ class OORB
   end
 
   ##
-  # Escapes a single-character string and makes \s optional \\s?
+  # Escapes a single-character string and makes whitespace characters optional
   def escape(character)
     if character.length > 1
       raise ArgumentError, "Argument must be a single character string"
