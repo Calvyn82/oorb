@@ -1,16 +1,8 @@
-require_relative 'test_helper'
+require_relative "test_helper"
 
 class OORBTest < Minitest::Test
   def setup
     @oorb = OORB.new
-  end
-
-  def test_open_braces_are_not_allowed
-    assert_raises(ArgumentError) { @oorb.build_regex("[") }
-  end
-
-  def test_close_braces_are_not_allowed
-    assert_raises(ArgumentError) { @oorb.build_regex("]") }
   end
 
   def test_build_regex_empty_string
@@ -22,15 +14,19 @@ class OORBTest < Minitest::Test
   end
 
   def test_build_regex_with_hash_characters
-    assert_equal("[til4][e6cdf43][sflji385][til4]", @oorb.build_regex('test'))
+    assert_equal("[til4][e6cdf43][sflji385][til4]", @oorb.build_regex("test"))
   end
 
-  def test_does_not_care_about_case_when_no_valid_characters
+  def test_does_not_care_about_case_when_no_collection_characters
     assert_equal("wuum", @oorb.build_regex("WUUM"))
   end
 
-  def test_does_not_care_about_case_when_valids
-    assert_equal("[til4][e6cdf43][sflji385][til4]", @oorb.build_regex('TEST'))
+  def test_does_not_care_about_case_when_collection_characters
+    assert_equal("[til4][e6cdf43][sflji385][til4]", @oorb.build_regex("TEST"))
+  end
+
+  def test_combine_whitespace
+    assert_equal("\s", @oorb.combine_whitespace("    "))
   end
 
   def test_build_collection_empty_string
@@ -49,43 +45,39 @@ class OORBTest < Minitest::Test
     assert_equal("[sflji385]", @oorb.build_collection("s"))
   end
 
-  def test_accomodate_spaces
-    assert_equal("", @oorb.escapes(""))
+  def test_escape_raises_ArgumentError
+    assert_raises(ArgumentError) { @oorb.escape("more than one character") }
   end
 
-  def test_accomodate_spaces_only_spaces
-    assert_equal("\\s", @oorb.escapes("    "))
+  def test_escape_escapes_whitespace
+    assert_equal("\\s?", @oorb.escape(" "))
   end
 
-  def test_accomodate_spaces_happy_path
-    assert_equal("[til4][e6cdf43][sflji385][til4]\\sm[e6cdf43]",
-                 @oorb.escapes("[til4][e6cdf43][sflji385][til4] m[e6cdf43]"))
+  def test_escape_backslashes
+    assert_equal("\\\\", @oorb.escape("\\"))
   end
 
-  def test_accomodates_punctuation
-    assert_equal("[hb][il1][.,;:'`\\s]?\\\\sm[oc603d]m[.,;:'`\\s]?",
-                 @oorb.escapes(
-                   "[hb][il1],\\sm[oc603d]m.")
-                )
+  def test_escape_open_square_braces
+    assert_equal("\\[", @oorb.escape("["))
   end
 
-  def test_escapes_backslashes
-    assert_equal("\\\\[hb]\\\\[il1]", @oorb.build_regex("\\h\\i"))
+  def test_escape_close_square_braces
+    assert_equal("\\]", @oorb.escape("]"))
   end
 
-  def test_escapes_open_parens
-    assert_equal("\\(", @oorb.escapes("("))
+  def test_escape_open_parens
+    assert_equal("\\(", @oorb.escape("("))
   end
 
-  def test_escapes_closing_parens
-    assert_equal("\\)", @oorb.escapes(")"))
+  def test_escape_closing_parens
+    assert_equal("\\)", @oorb.escape(")"))
   end
 
-  def test_escapes_open_curly_braces
-    assert_equal("\\{", @oorb.escapes("{"))
+  def test_escape_open_curly_braces
+    assert_equal("\\{", @oorb.escape("{"))
   end
 
-  def test_escapes_close_curly_braces
-    assert_equal("\\}", @oorb.escapes("}"))
+  def test_escape_close_curly_braces
+    assert_equal("\\}", @oorb.escape("}"))
   end
 end
