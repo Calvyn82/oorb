@@ -1,10 +1,21 @@
 # Oorb
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/oorb`. To experiment with that code, run `bin/console` for an interactive prompt.
+OCR Optimized Regex Builder is a command line tool for taking user input and converting it to regular expressions optimized for capturing characters that are commonly mistaken by optical character recognition engines.
 
-TODO: Delete this and the text above, and describe your gem
+## Installation as a command line appliction
 
-## Installation
+Clone this repository
+
+    $ git clone https://github.com/Calvyn82/oorb
+
+Navigate to the root directory, run the test suite, and install the application.
+
+    $ cd oorb
+    $ bundle install
+    $ bundle exec rake
+    $ bundle exec rake install
+
+## Installation as part of a Ruby application
 
 Add this line to your application's Gemfile:
 
@@ -20,22 +31,23 @@ Or install it yourself as:
 
     $ gem install oorb
 
-## Usage
+## Usage as a command line application
 
-TODO: Write usage instructions here
+    $ oorb
+    
+To exit the application, use Ctrl-c.
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/rake`, `bin/rake test`, `bundle exec rake` or `bundle exec rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/oorb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Calvyn82/oorb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
