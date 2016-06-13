@@ -4,16 +4,7 @@ OCR Optimized Regex Builder is a command line tool for taking user input and con
 
 ## Installation as a command line appliction
 
-Clone this repository
-
-    $ git clone https://github.com/Calvyn82/oorb
-
-Navigate to the root directory, run the test suite, and install the application.
-
-    $ cd oorb
-    $ bundle install
-    $ bundle exec rake
-    $ bundle exec rake install
+    $ gem install oorb
 
 ## Installation as part of a Ruby application
 
