@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Calvyn82/oorb.svg?branch=master)](https://travis-ci.org/Calvyn82/oorb)
+
 # Oorb
 
 OCR Optimized Regex Builder is a command line tool for taking user input and converting it to regular expressions optimized for capturing characters that are commonly mistaken by optical character recognition engines.
