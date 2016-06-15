@@ -10,7 +10,7 @@ class OORBTest < Minitest::Test
   end
 
   def test_build_regex_no_hash_characters
-    assert_equal("wuum", @oorb.build_regex("wuum"))
+    assert_equal("wm", @oorb.build_regex("wm"))
   end
 
   def test_build_regex_with_hash_characters
@@ -18,7 +18,7 @@ class OORBTest < Minitest::Test
   end
 
   def test_does_not_care_about_case_when_no_collection_characters
-    assert_equal("wuum", @oorb.build_regex("WUUM"))
+    assert_equal("wm", @oorb.build_regex("WM"))
   end
 
   def test_does_not_care_about_case_when_collection_characters
