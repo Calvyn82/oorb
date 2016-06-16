@@ -107,14 +107,4 @@ class OORB
     end
     character == "\s" ? "\\s?" : Regexp.escape(character)
   end
-
-  private
-
-  def format(character)
-    if character =~ /[wm]/
-      build_
-    else
-      Regexp.escape(character)
-    end
-  end
 end
