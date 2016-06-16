@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oorb (0.2.12)
+    oorb (0.3.0)
 
 GEM
   remote: https://rubygems.org/

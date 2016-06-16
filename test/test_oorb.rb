@@ -10,19 +10,19 @@ class OORBTest < Minitest::Test
   end
 
   def test_build_regex_no_hash_characters
-    assert_equal("wm", @oorb.build_regex("wm"))
+    assert_equal("kx", @oorb.build_regex("kx"))
   end
 
   def test_build_regex_with_hash_characters
-    assert_equal("[til4][e6cdf43][sflji385][til4]", @oorb.build_regex("test"))
+    assert_equal("[til47][e6cdf43][sflji385][til47]", @oorb.build_regex("test"))
   end
 
   def test_does_not_care_about_case_when_no_collection_characters
-    assert_equal("wm", @oorb.build_regex("WM"))
+    assert_equal("kx", @oorb.build_regex("KX"))
   end
 
   def test_does_not_care_about_case_when_collection_characters
-    assert_equal("[til4][e6cdf43][sflji385][til4]", @oorb.build_regex("TEST"))
+    assert_equal("[til47][e6cdf43][sflji385][til47]", @oorb.build_regex("TEST"))
   end
 
   def test_combine_whitespace
@@ -43,6 +43,22 @@ class OORBTest < Minitest::Test
 
   def test_build_collection_more_results
     assert_equal("[sflji385]", @oorb.build_collection("s"))
+  end
+
+  def test_build_section_empty_string
+    assert_raises(ArgumentError) { @oorb.build_section("") }
+  end
+
+  def test_build_section_invalid_character
+    assert_raises(ArgumentError) { @oorb.build_section("s") }
+  end
+
+  def test_build_section_valid_character
+    assert_equal("[mnr][nr]?", @oorb.build_section("m"))
+  end
+
+  def test_build_section_more_results
+    assert_equal("[wvu][vu]?", @oorb.build_section("w"))
   end
 
   def test_escape_raises_ArgumentError
